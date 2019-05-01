@@ -19,36 +19,40 @@ export default class App extends React.Component {
   render() {
     const { playlists } = this.state;
     return (
-      <Container>
-        <Header>
-          <Search
-            type="text"
-            placeholder="Search playlist.."
-            onChange={this.onKeywordChange}
-          />
-          <Button
-            onClick={this.onSearch}
-          >
-            Search
+      <Router>
+        <Container>
+          <Header>
+            <Search
+              type="text"
+              placeholder="Search playlist.."
+              onChange={this.onKeywordChange}
+              onKeyPress={this.onEnter}
+            />
+            <Button
+              onClick={this.onSearch}
+            >
+              Search
         </Button>
-        </Header>
-        <List>
-        {
-          playlists ?
-          map(playlists, (playlist, key) => {
-            return(
-              <ListItem 
-                key={key}
-              >
-                <Image src={playlist.images[0].url} />
-                {playlist.name} - <label>by {playlist.owner.display_name}</label>
-              </ListItem>
-            )
-          }) :
-          <li>Enter the playlist name and search.</li>
-        }
-        </List>
-      </Container>
+          </Header>
+          <List>
+            {
+              playlists ?
+                map(playlists, (playlist, key) => {
+                  return (
+                    <ListItem
+                      key={key}
+                    >
+                      <Image src={playlist.images[0].url} />
+                      {playlist.name} - <label>by {playlist.owner.display_name}</label>
+                      <summary> - {playlist.tracks.total} songs</summary>
+                    </ListItem>
+                  )
+                }) :
+                <li>Enter the playlist name and search.</li>
+            }
+          </List>
+        </Container>
+      </Router>
     )
   }
 
@@ -75,5 +79,11 @@ export default class App extends React.Component {
     this.setState({
       query: e.target.value
     })
+  }
+
+  onEnter = (e) => {
+    if (e.charCode === 13) {
+      this.onSearch()
+    }
   }
 }

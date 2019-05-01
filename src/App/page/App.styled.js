@@ -108,11 +108,15 @@ export const ListItem = styled.li`
         opacity: .8;
     }
 
-    label {
+    label, summary {
         color: #ccc;
         font-weight: 600;
         font-size: 12px;
         cursor: default;
+    }
+
+    &:last-of-type {
+        border: none;
     }
 `;
 

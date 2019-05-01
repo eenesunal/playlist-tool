@@ -8,6 +8,10 @@ export const Container = styled.div`
     align-items: flex-start;
     flex: 1;
     align-self: stretch;
+
+    p {
+        color: #fff;
+    }
 `;
 
 export const Header = styled.div`

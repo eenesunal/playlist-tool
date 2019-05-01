@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import { map } from "lodash"
 
 import { getJSON } from "../../request"
@@ -32,9 +32,12 @@ export default class App extends React.Component {
               onClick={this.onSearch}
             >
               Search
-        </Button>
+            </Button>
           </Header>
-          <List>
+          {
+            playlists && playlists.length < 1 ?
+            <p>Playlist not found by your keyword.</p> : 
+            <List>
             {
               playlists ?
                 map(playlists, (playlist, key) => {
@@ -51,6 +54,7 @@ export default class App extends React.Component {
                 <li>Enter the playlist name and search.</li>
             }
           </List>
+          }
         </Container>
       </Router>
     )

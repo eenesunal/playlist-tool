@@ -1,5 +1,5 @@
 const API = "https://api.spotify.com/v1/"
-const ACCESS_TOKEN = "BQA-RJMqPahR63iWzk1njZWTrUYmlAqfKQhxsvYce6BX5xCeGLcUBa4cfkrvfKLycr8gE2NMprK8h0JAPY_t6vuz9YIYZ_N3bnXsDTKapsK0A5LdY0-y7OF9JUxT8QMd9lQTSKcAv-UwkiFNkjdA0O277t6q_HhltlduLQ"
+const ACCESS_TOKEN = "BQBZ7GguDmrOokGws7RjvzZHmMkpu1fXiZy7pVa-KYdkDnn46966eHz7PWk76gomcBZ-3iH5aE2qkryRzAOBKfaSwK3Nzr-79585HE-XipNF5XADhdVhhG1u_0Zzaa3qKkB2mwmarwZYIx7Cxp9E_paeWt9zXbuT8EZYcw"
 
 export const getJSON = (request) => {
     return new Promise((resolve, reject) => {

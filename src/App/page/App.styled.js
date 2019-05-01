@@ -83,10 +83,14 @@ export const List = styled.ul`
 
     margin: 0;
     padding: 0;
-`
+
+    cursor: pointer;
+`;
 
 export const ListItem = styled.li`
     display: flex;
+    flex-wrap: wrap;
+    min-height: 100px;
 
     align-items: center;
     align-self: stretch;
@@ -99,4 +103,25 @@ export const ListItem = styled.li`
     font-size: 17px;
     line-height: 26px;
     color: #fff;
+
+    &:hover {
+        opacity: .8;
+    }
+
+    label {
+        color: #ccc;
+        font-weight: 600;
+        font-size: 12px;
+        cursor: default;
+    }
+`;
+
+export const PlaylistCover = styled.img`
+    width: 100px;
+    height: 100px;
+
+    margin: 0 20px 0 0;
+    padding: 0;
+
+    cursor: default;
 `;

@@ -1,8 +1,10 @@
 import React from 'react'
-import { getJSON } from "../../request"
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { map } from "lodash"
 
-import { Container, Header, List, ListItem, Search, SearchButton as Button } from "./App.styled"
+import { getJSON } from "../../request"
+
+import { Container, Header, List, ListItem, PlaylistCover as Image, Search, SearchButton as Button } from "./App.styled"
 
 export default class App extends React.Component {
   constructor(props) {
@@ -35,10 +37,15 @@ export default class App extends React.Component {
           playlists ?
           map(playlists, (playlist, key) => {
             return(
-              <ListItem key={key}>{playlist.name} - by {playlist.owner.display_name}</ListItem>
+              <ListItem 
+                key={key}
+              >
+                <Image src={playlist.images[0].url} />
+                {playlist.name} - <label>by {playlist.owner.display_name}</label>
+              </ListItem>
             )
           }) :
-          <ListItem>Enter the playlist name and search.</ListItem>
+          <li>Enter the playlist name and search.</li>
         }
         </List>
       </Container>

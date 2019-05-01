@@ -1,10 +1,6 @@
-import MD5 from "crypto-js/md5"
+const API = "https://api.spotify.com/v1/"
 
-const API = "https://gateway.marvel.com/v1/public/"
-const TIME_STAMP = new Date().getTime()
-const PUBLIC_KEY = "458f6c63683c89d3b7a2dc77b8514cf2"
-const PRIVATE_KEY = "26105905d1e8199838c01dbb5b3cb3cc17fd4d2a"
-const HASH = MD5(TIME_STAMP + PRIVATE_KEY + PUBLIC_KEY).toString()
+const ACCESS_TOKEN = "BQChwtQx4K_etqRk_xNX1hLqObfm81y4H-OUI8V2viEWFFNRy6mr1Ce1at4GxxMrLC98oLubqAVLcEDpT9aDInRsyzHxKjxCmroSFI0qW4cgYHnfaebjkzU1wXBgLP0OBJtPcPWW1vVgZUuNCvhyqS1oYeA6Yr0GAIHC0A"
 
 export const getJSON = (request) => {
     return new Promise((resolve, reject) => {
@@ -26,23 +22,17 @@ export const doRequest = (request) => {
     if (!request.headers.hasOwnProperty("Accept")) {
         request.headers["Accept"] = "application/json"
     }
-    if (!request.headers.hasOwnProperty("Authorization") && request.accessToken) {
-        request.headers["Authorization"] = `Bearer ${request.accessToken}`
+    if (!request.headers.hasOwnProperty("Authorization") && ACCESS_TOKEN) {
+        request.headers["Authorization"] = `Bearer ${ACCESS_TOKEN}`
     }
 
     return new Promise((resolve, reject) => {
         if (request) {
-            let nameStartsWith = request.nameStartsWith ? 'nameStartsWith=' + request.nameStartsWith : ""
-            let name = request.name ? '&name=' + request.name : ""
-            let limit = request.limit ? '&limit=' + request.limit : ""
-            let offset = request.offset ? '&offset=' + request.offset : ""
-            let apiKey = `&apikey=${PUBLIC_KEY}`
-            let hash = `&hash=${HASH}`
+            // search?q=%22doom%20metal%22&type=playlist"
+            let query = request.q ? 'q=' + request.query : ""
+            let type = "&type=playlist";
 
-            let params = nameStartsWith + name + limit + offset + apiKey + hash
-
-            if (params.charAt(0) === "&") params = params.substr(1)
-            if (params.charAt(params.length - 1) === "&") params = params.substring(0, params.length - 1)
+            let params = query + type
 
             const url = `${API + request.url}?${params}`
 

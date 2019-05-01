@@ -1,5 +1,4 @@
 const API = "https://api.spotify.com/v1/"
-
 const ACCESS_TOKEN = "BQChwtQx4K_etqRk_xNX1hLqObfm81y4H-OUI8V2viEWFFNRy6mr1Ce1at4GxxMrLC98oLubqAVLcEDpT9aDInRsyzHxKjxCmroSFI0qW4cgYHnfaebjkzU1wXBgLP0OBJtPcPWW1vVgZUuNCvhyqS1oYeA6Yr0GAIHC0A"
 
 export const getJSON = (request) => {
@@ -28,11 +27,9 @@ export const doRequest = (request) => {
 
     return new Promise((resolve, reject) => {
         if (request) {
-            // search?q=%22doom%20metal%22&type=playlist"
-            let query = request.q ? 'q=' + request.query : ""
-            let type = "&type=playlist";
+            let query = request.q ? 'q=' + request.q : ""
 
-            let params = query + type
+            let params = `${query}&type=${request.type}`
 
             const url = `${API + request.url}?${params}`
 

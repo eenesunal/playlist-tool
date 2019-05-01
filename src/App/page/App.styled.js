@@ -71,3 +71,32 @@ export const SearchButton = styled.button`
         opacity: .9;
     }
 `;
+
+export const List = styled.ul`
+    display: flex;
+
+    flex-direction: column;
+    align-self: stretch;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow-y: auto;
+
+    margin: 0;
+    padding: 0;
+`
+
+export const ListItem = styled.li`
+    display: flex;
+
+    align-items: center;
+    align-self: stretch;
+
+    margin: 5px 0;
+    padding: 20px 5px;
+
+    border-bottom: 1px solid #eee;
+
+    font-size: 17px;
+    line-height: 26px;
+    color: #fff;
+`;

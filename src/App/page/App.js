@@ -1,19 +1,21 @@
 import React from 'react'
 import { getJSON } from "../../request"
+import { map } from "lodash"
 
-import { Container, Header, Search, SearchButton as Button } from "./App.styled"
+import { Container, Header, List, ListItem, Search, SearchButton as Button } from "./App.styled"
 
 export default class App extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      playlists: [],
+      playlists: undefined,
       query: ""
     }
   }
 
   render() {
+    const { playlists } = this.state;
     return (
       <Container>
         <Header>
@@ -28,13 +30,24 @@ export default class App extends React.Component {
             Search
         </Button>
         </Header>
+        <List>
+        {
+          playlists ?
+          map(playlists, (playlist, key) => {
+            return(
+              <ListItem key={key}>{playlist.name} - by {playlist.owner.display_name}</ListItem>
+            )
+          }) :
+          <ListItem>Enter the playlist name and search.</ListItem>
+        }
+        </List>
       </Container>
     )
   }
 
   onPlaylistSuccess = (resolve) => {
     this.setState({
-      playlists: resolve.items,
+      playlists: resolve.playlists.items,
     })
   }
 

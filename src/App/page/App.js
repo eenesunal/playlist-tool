@@ -1,10 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from "react-router-dom"
 
-import SearchPlaylist from "../components/SearchPlaylist/SearchPlaylist"
-import PlaylistDetail from "../components/PlaylistDetail/PlaylistDetail"
-import Header from "../components/Header/Header"
-import Auth from "../components/Auth/Auth"
+import { SearchPlaylist, PlaylistDetail, Header, Auth } from "../components"
 import Callback from "../../Callback"
 
 import { Container } from "./App.styled"

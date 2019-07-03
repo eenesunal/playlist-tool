@@ -1,13 +1,10 @@
 import React from 'react'
 
-import Header from "../Header/Header"
-import Playlists from "../Playlists/Playlists"
+import { Header, Playlists } from "../"
 import ErrorBoundary from "../../../ErrorBoundary"
 
 export default class SearchPlaylist extends React.Component {
-
     render() {
-
         return (
             <React.Fragment>
                 <Header />

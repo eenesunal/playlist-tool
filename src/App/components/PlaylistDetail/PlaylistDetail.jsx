@@ -1,7 +1,6 @@
 import React from 'react'
 
-import Header from "../Header/Header"
-import Tracks from "../Tracks/Tracks"
+import { Header, Tracks } from "../"
 import ErrorBoundary from "../../../ErrorBoundary"
 
 export default class PlaylistDetail extends React.Component {

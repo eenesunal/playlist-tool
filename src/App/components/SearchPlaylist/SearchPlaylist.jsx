@@ -2,6 +2,7 @@ import React from 'react'
 
 import Header from "../Header/Header"
 import Playlists from "../Playlists/Playlists"
+import ErrorBoundary from "../../../ErrorBoundary"
 
 export default class SearchPlaylist extends React.Component {
 
@@ -10,7 +11,9 @@ export default class SearchPlaylist extends React.Component {
         return (
             <React.Fragment>
                 <Header />
-                <Playlists query={this.props.match.params.query} />
+                <ErrorBoundary>
+                    <Playlists query={this.props.match.params.query} />
+                </ErrorBoundary>
             </React.Fragment>
         )
     }

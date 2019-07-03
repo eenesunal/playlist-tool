@@ -1,4 +1,5 @@
 import React from 'react'
+import { Redirect } from "react-router-dom"
 
 import { Header as Container, HeaderRow, Search, SearchButton as Button } from "./Header.styled"
 
@@ -8,31 +9,36 @@ export default class Header extends React.Component {
 
         this.state = {
             query: "",
+            search: false
         }
     }
 
     render() {
+        const { query, search } = this.state
+
         return (
-            <Container>
-                <HeaderRow>
-                    <Search
-                        type="text"
-                        placeholder="Search playlist.."
-                        onChange={this.onKeywordChange}
-                        onKeyPress={this.onEnter}
-                    />
-                    <Button
-                        onClick={this.onSearch}
-                    >
-                        Search
+            search ?
+                <Redirect push to={`/search/${query}`} /> :
+                <Container>
+                    <HeaderRow>
+                        <Search
+                            type="text"
+                            placeholder="Search playlist.."
+                            onChange={this.onKeywordChange}
+                            onKeyPress={this.onEnter}
+                        />
+                        <Button
+                            onClick={this.onSearch}
+                        >
+                            Search
                     </Button>
-                </HeaderRow>
-            </Container>
+                    </HeaderRow>
+                </Container>
         )
     }
 
     onSearch = () => {
-        this.props.onSearch(this.state.query)
+        this.setState({ search: true })
     }
 
     onKeywordChange = (e) => {

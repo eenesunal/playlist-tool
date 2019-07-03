@@ -27,11 +27,11 @@ export const doRequest = (request) => {
 
     return new Promise((resolve, reject) => {
         if (request) {
-            let query = request.q ? 'q=' + request.q : ""
+            let query = request.q ? 'q=' + request.q : null
 
-            let params = `${query}&type=${request.type}`
+            let params = query ? `${query}&type=${request.type}` : null
 
-            const url = `${API + request.url}?${params}`
+            const url = params ? `${API + request.url}?${params}` : `${API + request.url}`
 
             fetch(new Request(url, request)).then((response) => {
                 response.traceId = response.headers.get("x-trace-id")

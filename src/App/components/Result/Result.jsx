@@ -36,12 +36,6 @@ export default class Result extends React.Component {
   }
 
   onPlaylistSelect = () => {
-    // youtube.post("/playlists", {
-    //   params: {
-    //     title: "highaf",
-    //     description: "This playlist created by playlist-tool"
-    //   }
-    // })
     alert("selected playlist")
   }
 }

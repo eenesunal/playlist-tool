@@ -1,7 +1,5 @@
-import { getter } from "./requestParams"
-
 const API = "https://api.spotify.com/v1/"
-const ACCESS_TOKEN = localStorage.getItem('ACCESS_TOKEN');
+const ACCESS_TOKEN = localStorage.getItem('ACCESS_TOKEN')
 
 export const getJSON = (request) => {
     return new Promise((resolve, reject) => {

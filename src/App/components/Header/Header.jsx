@@ -1,7 +1,5 @@
 import React from 'react'
 
-import { getter } from "../../../requestParams"
-
 import { Header as Container, HeaderRow, Search, SearchButton as Button } from "./Header.styled"
 
 export default class Header extends React.Component {
@@ -14,8 +12,6 @@ export default class Header extends React.Component {
     }
 
     render() {
-        const isAuth = localStorage.getItem('ACCESS_TOKEN')
-
         return (
             <Container>
                 <HeaderRow>
@@ -29,19 +25,8 @@ export default class Header extends React.Component {
                         onClick={this.onSearch}
                     >
                         Search
-                </Button>
+                    </Button>
                 </HeaderRow>
-                {
-                    !isAuth ?
-                        <HeaderRow>
-                            <Button mini
-                                onClick={this.onAuth}
-                            >
-                                Connect with Spotify
-                            </Button>
-                        </HeaderRow> :
-                        <React.Fragment />
-                }
             </Container>
         )
     }
@@ -60,9 +45,5 @@ export default class Header extends React.Component {
         if (e.charCode === 13) {
             this.onSearch()
         }
-    }
-
-    onAuth = () => {
-        this.props.onAuth()
     }
 }

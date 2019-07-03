@@ -49,6 +49,7 @@ export const SearchButton = styled.button`
 
     margin: 2.5px 5px;
     padding: ${props => props.mini ? "10px 15px" : "18px 48px 16px"};
+    z-index: 1;
 
     border: 1px solid #116e32;
     border-radius: ${props => props.mini ? "10px" : "500px"};

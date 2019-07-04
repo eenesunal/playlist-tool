@@ -6,10 +6,21 @@ export const Header = styled.div`
     height: 200px;
     align-self: stretch;
     flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: height 0.3s;
+    z-index: 1;
 
     justify-content: center;
     align-items: center;
 
+    background-image: url("https://artsy-media-uploads.s3.amazonaws.com/1sgadIAIdate_DDi1Fv6WQ%2Fcustom-Custom_Size___BeachBirds_Strauss_MCDC.jpg");
+    background-position: center;
+
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 `;
 
 export const HeaderRow = styled.div`
@@ -51,7 +62,7 @@ export const SearchButton = styled.button`
     padding: ${props => props.mini ? "10px 15px" : "18px 48px 16px"};
     z-index: 1;
 
-    border: 1px solid #116e32;
+    border: 1px solid rgba(17,110,50,.5);
     border-radius: ${props => props.mini ? "10px" : "500px"};
     outline: none;
     box-sizing: border-box;

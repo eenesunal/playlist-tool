@@ -32,3 +32,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.shrinked-header {
+  height: 65px !important;
+}
+
+.shrinked-button {
+  position: fixed;
+  top: -30px;
+  right: 10px;
+  width: 128px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  color: transparent;
+  z-index: 2;
+  background: transparent;
+}
+
+.shrinked-button::before {
+  content: url("http://ozkanarici.com/wp-content/uploads/2016/06/youtube-128.png");
+  width: 128px;
+  height: 128px;
+  color: #fff;
+}

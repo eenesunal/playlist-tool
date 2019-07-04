@@ -2,7 +2,7 @@ import React from 'react'
 import { map } from "lodash"
 
 import { getJSON } from "../../../request"
-import { AlbumCover, Container, TrackList as List, TrackListItem as ListItem } from "./Tracks.styled"
+import { AlbumCover, Container, Header, TrackList as List, TrackListItem as ListItem, ExportButton } from "./Tracks.styled"
 
 export default class Tracks extends React.Component {
     constructor(props) {
@@ -29,6 +29,9 @@ export default class Tracks extends React.Component {
 
         return (
             <Container>
+                <Header>
+                    <ExportButton id='export-to-youtube'>Export to YouTube</ExportButton>
+                </Header>
                 <List>
                     {
                         map(tracks, (trackInfo, key) => {

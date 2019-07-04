@@ -6,8 +6,8 @@ export const Result = styled.div`
 
     justify-content: flex-start;
     align-items: flex-start;
-    flex: 1;
     align-self: stretch;
+    padding-top: 200px;
 `;
 
 export const List = styled.ul`

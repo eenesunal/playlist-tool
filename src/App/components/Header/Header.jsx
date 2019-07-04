@@ -19,7 +19,7 @@ export default class Header extends React.Component {
         return (
             search ?
                 <Redirect push to={`/search/${query}`} /> :
-                <Container>
+                <Container id='search-header'>
                     <HeaderRow>
                         <Search
                             type="text"

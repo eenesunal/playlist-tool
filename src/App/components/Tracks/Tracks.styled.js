@@ -6,8 +6,41 @@ export const Container = styled.div`
 
     justify-content: flex-start;
     align-items: flex-start;
-    flex: 1;
     align-self: stretch;
+    padding-top: 200px;
+`;
+
+export const Header = styled.div`
+    display: flex;
+    
+    align-items: center;
+    align-self: stretch;
+
+    margin: 0;
+    padding: 5px 0;
+`;
+
+export const ExportButton = styled.button`
+    display: flex;
+    flex-direction: row;
+
+    padding: 10px 16px;
+    margin: 0 4px 0 auto;
+    border: none;
+    border-radius: 2px;
+
+    background-color: #cc0000;
+    color: #FFFFFF;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: .007px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    outline: none;
+    transition: width 0.3s;
+    transition: position 0.3s;
 `;
 
 export const TrackList = styled.ul`

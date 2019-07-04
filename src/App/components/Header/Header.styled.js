@@ -21,6 +21,8 @@ export const Header = styled.div`
 
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
+    box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, .5);
+
 `;
 
 export const HeaderRow = styled.div`

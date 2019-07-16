@@ -15,6 +15,7 @@ export default class Header extends React.Component {
 
     render() {
         const { query, search } = this.state
+        const { searchKey } = this.props
 
         return (
             search ?
@@ -23,7 +24,7 @@ export default class Header extends React.Component {
                     <HeaderRow>
                         <Search
                             type="text"
-                            placeholder="Search playlist.."
+                            placeholder={searchKey ? searchKey : `Search playlist..`}
                             onChange={this.onKeywordChange}
                             onKeyPress={this.onEnter}
                         />

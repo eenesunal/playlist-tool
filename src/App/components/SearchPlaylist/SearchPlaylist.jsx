@@ -11,7 +11,7 @@ export default class SearchPlaylist extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <Header />
+                <Header searchKey={this.props.match.params.query} />
                 <ErrorBoundary>
                     <Playlists query={this.props.match.params.query} />
                 </ErrorBoundary>
